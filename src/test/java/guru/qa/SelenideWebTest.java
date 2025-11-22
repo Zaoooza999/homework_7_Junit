@@ -1,8 +1,10 @@
 package guru.qa;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import guru.qa.data.Language;
 import guru.qa.data.Person;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
@@ -22,9 +24,9 @@ public class SelenideWebTest {
         Configuration.browserSize = "1920x1080";
     }
 
-    public static void main(String[] args) {
-        System.out.println(Language.RU.description);
-        System.out.println(Language.EN.description);
+    @AfterEach
+    void afterEach(){
+        Selenide.closeWebDriver();
     }
 
     @EnumSource(Language.class)

@@ -1,7 +1,9 @@
 package guru.qa;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import guru.qa.data.Name;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
@@ -10,6 +12,11 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTests {
+    @AfterEach
+    void afterEach(){
+        Selenide.closeWebDriver();
+    }
+
     @ValueSource(strings = {
             "Max", "Ivan"
     })

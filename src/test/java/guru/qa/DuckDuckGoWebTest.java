@@ -1,10 +1,8 @@
 package guru.qa;
 
 import com.codeborne.selenide.CollectionCondition;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -17,6 +15,11 @@ public class DuckDuckGoWebTest {
     @BeforeEach
     void setUp(){
         open("https://duckduckgo.com/");
+    }
+
+    @AfterEach
+    void afterEach(){
+        Selenide.closeWebDriver();
     }
 
     @ValueSource (strings = {

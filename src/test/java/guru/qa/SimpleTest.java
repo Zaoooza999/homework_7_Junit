@@ -1,5 +1,7 @@
 package guru.qa;
 
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +14,10 @@ import java.util.stream.Stream;
 
 @DisplayName("Класс с простыми тестами")
 public class SimpleTest {
+    @AfterEach
+    void afterEach(){
+        Selenide.closeWebDriver();
+    }
 
     @Disabled
     @DisplayName("Первый простой тест")
